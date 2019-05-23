@@ -1,0 +1,44 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block headerTitle %}Blog {% endblock headerTitle %}
+
+{% block content %}
+<div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <h3 class="mt-4">{{blog.title}}</h3>
+
+      <!-- Author -->
+      <p class="lead">
+        
+        {{blog.author.username}} tarafından yayınlandı
+      </p>
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p>{{blog.created_date}}</p>
+
+      <hr>
+
+      <!-- Preview Image -->
+      {% if blog.thumbnail %}
+      <img class="img-fluid rounded" src="{{blog.thumbnail.url}}" alt="">
+      {% endif %}
+     
+
+      <hr>
+
+      <!-- Post Content -->
+      <p class="lead">
+          {{blog.content}}
+      </p>
+
+      <hr>
+
+
+
+{% endblock content %}
